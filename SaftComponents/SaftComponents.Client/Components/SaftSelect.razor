@@ -1,0 +1,90 @@
+﻿<!-- CustomSelect Component -->
+<!-- Single and Multiple Select -->
+<!-- Multi Select Value Display upon values set -->
+@if (!IsSetValues)
+{
+    @if (IsMultiSelect)
+    {
+        <div class="custom-select-multi">
+            @foreach (var item in Items)
+            {
+                <div class="tab @(SelectedValues.Contains(item) ? "selected" : "")" @onclick="(() => ToggleMultiSelect(item))">
+                    @item
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="custom-select-single">
+            @foreach (var item in Items)
+            {
+                <div class="tab @(item == SelectedValue ? "selected" : "")" @onclick="(() => HandleSingleSelect(item))">
+                    @item
+                </div>
+            }
+        </div>
+    }
+
+}
+else
+{
+    <div class="select-multi">
+        @foreach (var item in Items)
+        {
+            <div class="tab @(AppliedValues.Contains(item) ? "selected" : "")">
+                @item
+            </div>
+        }
+    </div>
+}
+
+
+
+@code {
+    [Parameter]
+    public List<string> Items { get; set; }
+
+    [Parameter]
+    public string SelectedValue { get; set; }
+
+    [Parameter]
+    public List<string> SelectedValues { get; set; }
+
+    [Parameter]
+    public bool IsMultiSelect { get; set; }
+
+    [Parameter]
+    public bool IsSetValues { get; set; }
+
+    [Parameter]
+    public EventCallback<string> SelectedValueChanged { get; set; }
+
+    [Parameter]
+    public EventCallback<List<string>> SelectedValuesChanged { get; set; }
+
+    [Parameter]
+    public List<string> AppliedValues { get; set; }
+
+
+
+    private async Task HandleSingleSelect(string item)
+    {
+        await SelectedValueChanged.InvokeAsync(item);
+    }
+
+    private void ToggleMultiSelect(string item)
+    {
+        if (SelectedValues.Contains(item))
+        {
+            SelectedValues.Remove(item);
+        }
+        else
+        {
+            SelectedValues.Add(item);
+        }
+
+        SelectedValuesChanged.InvokeAsync(SelectedValues);
+    }
+
+}

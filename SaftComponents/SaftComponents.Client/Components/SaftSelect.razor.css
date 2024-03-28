@@ -1,0 +1,36 @@
+﻿.custom-select-single .tab,
+.custom-select-multi .tab {
+    display: inline-block;
+    padding: 4px 25px;
+    margin-right: 0px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    border: solid;
+    border-width: thin;
+}
+
+    .custom-select-single .tab.selected,
+    .custom-select-multi .tab.selected {
+        border-color: black;
+        background-color: #a5a4a4;
+        color: white;
+    }
+
+
+
+.select-multi .tab {
+    display: inline-block;
+    padding: 4px 25px;
+    margin-right: 0px;
+    background-color: gray;
+    cursor: pointer;
+    border: solid;
+    border-width: thin;
+}
+
+    .select-multi .tab.selected {
+        border-color: black;
+        background-color: darkgreen;
+        color: white;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    }
