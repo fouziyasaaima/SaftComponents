@@ -16,6 +16,7 @@ A single component has option to work as based on parameters passed:
 ![image](https://github.com/fouziyasaaima/SaftComponents/assets/22844099/8f7a5516-d5ac-4c69-abc1-df20f976f5d0)
 
 4. Multi-Select display upon setting values:
+   
    ![image](https://github.com/fouziyasaaima/SaftComponents/assets/22844099/05adb603-4501-44cf-af92-f24b3e7fd23f)
 
    
